@@ -1,0 +1,5 @@
+# Foundry artifacts
+cache
+out
+broadcast
+.env
