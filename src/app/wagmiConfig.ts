@@ -1,17 +1,6 @@
-import {
-  connectorsForWallets,
-  WalletDetailsParams,
-} from "@rainbow-me/rainbowkit";
 import { http, createConfig } from "wagmi";
 import { injected, mock } from "wagmi/connectors";
-import { anvil, Chain, foundry, gnosis, sepolia } from "wagmi/chains";
-import {
-  frameWallet,
-  injectedWallet,
-  metaMaskWallet,
-  walletConnectWallet,
-} from "@rainbow-me/rainbowkit/wallets";
-import { createWalletClient, Hex, UserRejectedRequestError } from "viem";
+import { foundry, gnosis, sepolia } from "wagmi/chains";
 
 export type WagmiMockFeatures =
   | {
