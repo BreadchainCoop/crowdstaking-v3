@@ -18,25 +18,22 @@ export function HomePage() {
   const { connectors } = useConnect();
   const { chains, switchChain } = useSwitchChain();
 
-  console.log({ account });
-  console.log({ account });
-  console.log({ account });
-  console.log({ account });
-  console.log({ account });
-
   return (
     <div>
       {account.status === "connected" ? (
         <div>
-          <div>
+          <div className="p-2">
             <span>{account.address}</span>
             <button onClick={() => disconnect()}>disconnect</button>
           </div>
 
-          <div>
+          <div className="p-2">
             <span>{account.chain?.name}</span>
-            <button onClick={() => switchChain({ chainId: 31337 })}>
-              switch to anvil
+            <button
+              className="px-2 py-1 bg-neutral-300 text-neutral-800 rounded"
+              onClick={() => switchChain({ chainId: 31337 })}
+            >
+              switch to foundry
             </button>
           </div>
           <Balance account={account.address} chainId={account.chainId} />
