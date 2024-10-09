@@ -97,5 +97,19 @@ contract Deploy is Script {
             address(yieldDistributor)
         );
         vm.stopBroadcast();
+
+        // write both deployed contract addresses to file
+        string memory distributorSerialized = vm.serializeAddress(
+            "DISTRIBUTOR",
+            "ADDRESS",
+            address(yieldDistributor)
+        );
+        string memory butteredBreadSerialized = vm.serializeAddress(
+            "BUTTERED_BREAD",
+            "ADDRESS",
+            address(butteredBread)
+        );
+        vm.writeJson(distributorSerialized, "./out/DISTRIBUTOR.json");
+        vm.writeJson(butteredBreadSerialized, "./out/BUTTERED_BREAD.json");
     }
 }
