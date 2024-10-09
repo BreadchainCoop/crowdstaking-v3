@@ -13,7 +13,7 @@ $ forge install
 
 ### Start local node
 
-Anvil starts a local fork from the most recent block based on the rpc url provided. The chain id is used to identify the anvil network in the app config.
+Anvil starts a local fork from the most recent block based on the rpc url provided. The chain id is used to identify the anvil network in the app config. Block time is 5 seconds to match gnosis chain.
 
 ```sh
 $ anvil --fork-url https://rpc.gnosis.gateway.fm --chain-id 31337 --block-time 5
@@ -26,7 +26,6 @@ We also need a wallet for working locally. To set this up take the private key f
 Because of how the distributor contract works the developer wallet needs to hold some bread before we deploy the contracts for us to be able to vote. The setup script takes care of this as well as funding the wallet with LP tokens which is needed for the LP locking feature.
 
 ```sh
-# setup dev wallet
 $ pnpm run chain:setup
 ```
 
