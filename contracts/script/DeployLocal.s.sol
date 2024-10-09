@@ -10,33 +10,29 @@ import {YieldDistributor} from "breadchain/src/YieldDistributor.sol";
 import {ButteredBread, IButteredBread} from "breadchain/src/ButteredBread.sol";
 
 contract Deploy is Script {
-    address _owner =
-        address(bytes20(bytes("0x918dEf5d593F46735f74F9E2B280Fe51AF3A99ad")));
+    address _owner = address(0x918dEf5d593F46735f74F9E2B280Fe51AF3A99ad);
 
     // Buttered Bread config
     address[] _liquidityPools = [
-        address(bytes20(bytes("0xf3d8f3de71657d342db60dd714c8a2ae37eac6b4")))
+        address(0xf3D8F3dE71657D342db60dd714c8a2aE37Eac6B4)
     ];
     uint256[] _scalingFactors = [100];
     string _bbName = "ButteredBread";
     string _bbSymbol = "BB";
 
     // Distributor Config
-    address _bread =
-        address(bytes20(bytes("0xa555d5344f6FB6c65da19e403Cb4c1eC4a1a5Ee3")));
-    address _butteredBread =
-        address(bytes20(bytes("0x123456789abcdef123456789abcdef123456789a")));
+    address _bread = address(0xa555d5344f6FB6c65da19e403Cb4c1eC4a1a5Ee3);
     uint256 _minRequiredVotingPower = 5;
     uint256 _cycleLength = 518400;
     uint256 _maxPoints = 10000;
     uint256 _precision = 1000000000000000000;
     uint256 _yieldFixedSplitDivisor = 2;
     address[] projects = [
-        address(bytes20(bytes("0x7E1367998e1fe8Fab8f0bbF41e97cD6E0C891B64"))),
-        address(bytes20(bytes("0x5405e2D4D12AAdB57579E780458c9a1151b560F1"))),
-        address(bytes20(bytes("0x5c22B3F03b3d8FFf56C9B2e90151512Cb3F3dE0F"))),
-        address(bytes20(bytes("0x6A148b997e6651237F2fCfc9E30330a6480519f0"))),
-        address(bytes20(bytes("0x918dEf5d593F46735f74F9E2B280Fe51AF3A99ad")))
+        address(0x7E1367998e1fe8Fab8f0bbF41e97cD6E0C891B64),
+        address(0x5405e2D4D12AAdB57579E780458c9a1151b560F1),
+        address(0x5c22B3F03b3d8FFf56C9B2e90151512Cb3F3dE0F),
+        address(0x6A148b997e6651237F2fCfc9E30330a6480519f0),
+        address(0x918dEf5d593F46735f74F9E2B280Fe51AF3A99ad)
     ];
 
     function run() external {
@@ -72,7 +68,7 @@ contract Deploy is Script {
         bytes memory initData = abi.encodeWithSelector(
             YieldDistributor.initialize.selector,
             _bread,
-            _butteredBread,
+            address(butteredBread),
             _precision,
             _minRequiredVotingPower,
             _maxPoints,
